@@ -2,280 +2,245 @@
 <html>
 
 <head>
-  <title>Exercise App</title>
-  <style>
-    body {
-      display: flex;
-      margin: 0;
-    }
+    <title>Exercise App</title>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+        }
 
-    .left-menu {
-      width: 200px;
-      background-color: #f0f0f0;
-      padding: 20px;
-      box-sizing: border-box;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+        .left-menu {
+            width: 200px;
+            background-color: #f0f0f0;
+            padding: 20px;
+            box-sizing: border-box;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
-    .left-menu a {
-      display: block;
-      padding: 10px;
-      margin-bottom: 5px;
-      background-color: #ddd;
-      text-decoration: none;
-      color: #333;
-      text-align: center;
-    }
+        .left-menu a {
+            display: block;
+            padding: 10px;
+            margin-bottom: 5px;
+            background-color: #ddd;
+            text-decoration: none;
+            color: #333;
+            text-align: center;
+        }
 
-    .left-menu a:hover {
-      background-color: #ccc;
-    }
+        .left-menu a:hover {
+            background-color: #ccc;
+        }
 
-    .content-area {
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
-    }
+        .content-area {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
 
-    .content-container {
-      display: flex;
-      align-items: start;
-      gap: 20px;
-    }
+        .content-container {
+            display: flex;
+            align-items: start;
+            gap: 20px;
+        }
 
-    img {
-      max-width: 70%;
-      max-height: 70vh;
-      display: block;
-      margin: 10px auto;
-    }
+        img {
+            max-width: 70%;
+            max-height: 70vh;
+            display: block;
+            margin: 10px auto;
+        }
 
-    .info-box {
-      border: 1px solid #ccc;
-      padding: 10px;
-      max-width: 300px;
-      text-align: left;
-    }
+        .info-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            max-width: 300px;
+            text-align: left;
+        }
 
-    button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 16px;
-    }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
 
-    h1 {
-      margin-bottom: 20px;
-    }
+        h1 {
+            margin-bottom: 20px;
+        }
 
-    h2 {
-      margin-bottom: 10px;
-    }
+        h2 {
+            margin-bottom: 10px;
+        }
 
-    ul {
-      text-align: left;
-      display: inline-block;
-      padding: 0 20px;
-      max-width: 600px;
-    }
+        ul {
+            text-align: left;
+            display: inline-block;
+            padding: 0 20px;
+            max-width: 600px;
+        }
 
-    .button-container {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-    }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
 
-    .info-box ul ul {
-      list-style-type: circle;
-      color: white;
-    }
+        .info-box ul ul {
+            list-style-type: circle;
+            color: white;
+        }
 
-    .info-box ul ul li {
-      padding-left: 40px;
-    }
-
-    /* Styles for marker placement page */
-    #marker-placement {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      width: 100%;
-    }
-
-    #marker-placement .images-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    #marker-placement .images-container img {
-      max-width: 300px;
-      max-height: 400px;
-      margin-bottom: 20px;
-    }
-
-    #marker-placement .viewer-container {
-      width: 500px;
-      height: 500px;
-      border: 1px solid #eeeeee;
-    }
-  </style>
+        .info-box ul ul li {
+            padding-left: 40px;
+        }
+    </style>
 </head>
 
 <body>
-  <div class="left-menu">
-    <a href="#marker-placement">Marker Placement</a>
-    <a href="#a-pose">A-Pose</a>
-    <a href="#rom">ROM</a>
-  </div>
-  <div class="content-area">
-    <div id="marker-placement" style="display: none;">
-      <h1>Marker Placement Page</h1>
-      <div class="images-container">
-        <img src="image1.jpg" alt="Image 1">
-        <img src="image2.jpg" alt="Image 2">
-        <img src="image3.jpg" alt="Image 3">
-      </div>
-      <div class="viewer-container">
-        <iframe width="100%" height="100%"
-          src="https://3dviewer.net/embed.html#model=https://github.com/LeedsXR/mocap-ref/blob/main/Low%20Poly%20Male%20body.fbx$camera=169.48379,370.18722,427.39485,255.46234,255.54915,255.43774,0.00000,1.00000,0.00000,45.00000$cameramode=perspective$envsettings=fishermans_bastion,off$backgroundcolor=255,255,255,255$defaultcolor=200,200,200$edgesettings=off,0,0,0,1">
-        </iframe>
-      </div>
+    <div class="left-menu">
+        <a href="#marker-placement">Marker Placement</a>
+        <a href="#a-pose">A-Pose</a>
+        <a href="#rom">ROM</a>
     </div>
-    <div id="a-pose" style="display: none;">
-      <h1>A-Pose Page</h1>
-      <p>Content for A-Pose page goes here.</p>
-    </div>
-    <div id="rom">
-      <h1>ROM</h1>
-      <h2 id="exerciseTitle"></h2>
-      <ul id="exerciseText"></ul>
-
-      <div class="content-container">
-        <img id="exerciseGif" src="02 - Hip Rotation.gif">
-        <div class="info-box">
-          <h3>Joints Covered:</h3>
-          <ul id="jointsCovered"></ul>
+    <div class="content-area">
+        <div id="marker-placement" style="display: none;">
+            <h1>Marker Placement Page</h1>
+            <p>Content for Marker Placement page goes here.</p>
         </div>
-      </div>
+        <div id="a-pose" style="display: none;">
+            <h1>A-Pose Page</h1>
+            <p>Content for A-Pose page goes here.</p>
+        </div>
+        <div id="rom">
+            <h1>ROM</h1>
+            <h2 id="exerciseTitle"></h2>
+            <ul id="exerciseText"></ul>
 
-      <div class="button-container">
-        <button id="prevBtn">Back</button>
-        <button id="nextBtn">Next</button>
-      </div>
+            <div class="content-container">
+                <img id="exerciseGif" src="02 - Hip Rotation.gif">
+                <div class="info-box">
+                    <h3>Joints Covered:</h3>
+                    <ul id="jointsCovered"></ul>
+                </div>
+            </div>
+
+            <div class="button-container">
+                <button id="prevBtn">Back</button>
+                <button id="nextBtn">Next</button>
+            </div>
+        </div>
+
     </div>
 
-  </div>
+    <script>
+        const gifElement = document.getElementById('exerciseGif');
+        const nextButton = document.getElementById('nextBtn');
+        const prevButton = document.getElementById('prevBtn');
+        const titleElement = document.getElementById('exerciseTitle');
+        const textElement = document.getElementById('exerciseText');
+        const jointsCoveredElement = document.getElementById('jointsCovered');
 
-  <script>
-    const gifElement = document.getElementById('exerciseGif');
-    const nextButton = document.getElementById('nextBtn');
-    const prevButton = document.getElementById('prevBtn');
-    const titleElement = document.getElementById('exerciseTitle');
-    const textElement = document.getElementById('exerciseText');
-    const jointsCoveredElement = document.getElementById('jointsCovered');
+        const exercises = [
+            {
+                title: "Hip Rotation",
+                text: [
+                    "Keep feet hip-width apart and bow forward.",
+                    "Lean upper body to one side and make a circular motion with torso.",
+                    "Lean backward as you return to the upright position.",
+                    "Imagine drawing a giant circle at a 45-degree angle with the volume floor, using your head."
+                ],
+                gif: "02 - Hip Rotation.gif",
+                joints: ["Hips", "Spine", "LeftUpLeg", "RightUpLeg"]
+            },
+            {
+                title: "Twist Waist",
+                text: [
+                    "Keep feet hip-width apart.",
+                    "Bring arms up to chest, palms facing the floor.",
+                    "Twist around to see behind you.",
+                    "Repeat in the opposite direction."
+                ],
+                gif: "03 - Twist Waist.gif",
+                joints: ["Spine", "LeftShoulder", "RightShoulder", "Hips, which include: LeftUpLeg and RightUpLeg"]
+            },
+            {
+                title: "Roll Thighs",
+                text: [
+                    "Stand with feet hip-width apart.",
+                    "Lift one leg and bend your knee to a 90-degree angle.",
+                    "Rotate the lifted leg outwards to one side.",
+                    "Perform the same motion with the other leg.",
+                    "Imagine stepping over a knee-high fence with each leg.",
+                ],
+                gif: "04 - Roll Thighs.gif",
+                joints: ["LeftUpLeg", "RightUpLeg", "LeftLeg", "RightLeg", "Spine"]
+            },
+        ];
 
-    const exercises = [
-      {
-        title: "Hip Rotation",
-        text: [
-          "Keep feet hip-width apart and bow forward.",
-          "Lean upper body to one side and make a circular motion with torso.",
-          "Lean backward as you return to the upright position.",
-          "Imagine drawing a giant circle at a 45-degree angle with the volume floor, using your head."
-        ],
-        gif: "02 - Hip Rotation.gif",
-        joints: ["Hips", "Spine", "LeftUpLeg", "RightUpLeg"]
-      },
-      {
-        title: "Twist Waist",
-        text: [
-          "Keep feet hip-width apart.",
-          "Bring arms up to chest, palms facing the floor.",
-          "Twist around to see behind you.",
-          "Repeat in the opposite direction."
-        ],
-        gif: "03 - Twist Waist.gif",
-        joints: ["Spine", "LeftShoulder", "RightShoulder", "Hips, which include: LeftUpLeg and RightUpLeg"]
-      },
-      {
-        title: "Roll Thighs",
-        text: [
-          "Stand with feet hip-width apart.",
-          "Lift one leg and bend your knee to a 90-degree angle.",
-          "Rotate the lifted leg outwards to one side.",
-          "Perform the same motion with the other leg.",
-          "Imagine stepping over a knee-high fence with each leg.",
-        ],
-        gif: "04 - Roll Thighs.gif",
-        joints: ["LeftUpLeg", "RightUpLeg", "LeftLeg", "RightLeg", "Spine"]
-      },
-    ];
+        let currentExercise = 0;
 
-    let currentExercise = 0;
+        function displayExercise(index) {
+            if (index >= 0 && index < exercises.length) {
+                titleElement.textContent = exercises[index].title;
 
-    function displayExercise(index) {
-      if (index >= 0 && index < exercises.length) {
-        titleElement.textContent = exercises[index].title;
+                let bulletPoints = "";
+                exercises[index].text.forEach(item => {
+                    bulletPoints += `<li>${item}</li>`;
+                });
+                textElement.innerHTML = bulletPoints;
+                gifElement.src = exercises[index].gif;
 
-        let bulletPoints = "";
-        exercises[index].text.forEach(item => {
-          bulletPoints += `<li>${item}</li>`;
+                let jointsCovered = "";
+                exercises[index].joints.forEach(joint => {
+                    if (Array.isArray(joint)) {
+                        jointsCovered += "<ul>";
+                        joint.forEach(nestedJoint => {
+                            jointsCovered += `<li>${nestedJoint}</li>`;
+                        });
+                        jointsCovered += "</ul>";
+                    } else {
+                        jointsCovered += `<li>${joint}</li>`;
+                    }
+                });
+                jointsCoveredElement.innerHTML = jointsCovered;
+
+            } else if (index < 0) {
+                currentExercise = 0;
+                alert("This is the first exercise!");
+            } else {
+                alert("Exercises complete!");
+            }
+        }
+
+        nextButton.addEventListener('click', () => {
+            currentExercise++;
+            displayExercise(currentExercise);
         });
-        textElement.innerHTML = bulletPoints;
-        gifElement.src = exercises[index].gif;
 
-        let jointsCovered = "";
-        exercises[index].joints.forEach(joint => {
-          if (Array.isArray(joint)) {
-            jointsCovered += "<ul>";
-            joint.forEach(nestedJoint => {
-              jointsCovered += `<li>${nestedJoint}</li>`;
+        prevButton.addEventListener('click', () => {
+            currentExercise--;
+            displayExercise(currentExercise);
+        });
+
+        displayExercise(currentExercise);
+
+        document.querySelectorAll('.left-menu a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                document.querySelectorAll('.content-area > div').forEach(div => {
+                    div.style.display = 'none';
+                });
+                document.getElementById(targetId).style.display = 'block';
             });
-            jointsCovered += "</ul>";
-          } else {
-            jointsCovered += `<li>${joint}</li>`;
-          }
         });
-        jointsCoveredElement.innerHTML = jointsCovered;
-
-      } else if (index < 0) {
-        currentExercise = 0;
-        alert("This is the first exercise!");
-      } else {
-        alert("Exercises complete!");
-      }
-    }
-
-    nextButton.addEventListener('click', () => {
-      currentExercise++;
-      displayExercise(currentExercise);
-    });
-
-    prevButton.addEventListener('click', () => {
-      currentExercise--;
-      displayExercise(currentExercise);
-    });
-
-    displayExercise(currentExercise);
-
-    document.querySelectorAll('.left-menu a').forEach(link => {
-      link.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
-        document.querySelectorAll('.content-area > div').forEach(div => {
-          div.style.display = 'none';
-        });
-        document.getElementById(targetId).style.display = 'block';
-      });
-    });
-    document.getElementById('rom').style.display = 'block';
-  </script>
+        document.getElementById('rom').style.display = 'block';
+    </script>
 </body>
 
 </html>
