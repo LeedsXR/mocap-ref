@@ -98,6 +98,12 @@
         .info-box ul ul li {
             padding-left: 40px;
         }
+
+        #3d-container {
+            width: 600px;
+            height: 400px;
+            border: 1px solid #ccc;
+        }
     </style>
 </head>
 
@@ -118,116 +124,45 @@
         </div>
         <div id="rom">
             <h1>ROM</h1>
-            <h2 id="exerciseTitle"></h2>
-            <ul id="exerciseText"></ul>
-
-            <div class="content-container">
-                <img id="exerciseGif" src="02 - Hip Rotation.gif">
-                <div class="info-box">
-                    <h3>Joints Covered:</h3>
-                    <ul id="jointsCovered"></ul>
-                </div>
-            </div>
-
-            <div class="button-container">
-                <button id="prevBtn">Back</button>
-                <button id="nextBtn">Next</button>
-            </div>
+            <div id="3d-container"></div>
         </div>
-
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
     <script>
-        const gifElement = document.getElementById('exerciseGif');
-        const nextButton = document.getElementById('nextBtn');
-        const prevButton = document.getElementById('prevBtn');
-        const titleElement = document.getElementById('exerciseTitle');
-        const textElement = document.getElementById('exerciseText');
-        const jointsCoveredElement = document.getElementById('jointsCovered');
+        const container = document.getElementById('3d-container');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, container.offsetWidth / container.offsetHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(container.offsetWidth, container.offsetHeight);
+        container.appendChild(renderer.domElement);
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
 
-        const exercises = [
-            {
-                title: "Hip Rotation",
-                text: [
-                    "Keep feet hip-width apart and bow forward.",
-                    "Lean upper body to one side and make a circular motion with torso.",
-                    "Lean backward as you return to the upright position.",
-                    "Imagine drawing a giant circle at a 45-degree angle with the volume floor, using your head."
-                ],
-                gif: "02 - Hip Rotation.gif",
-                joints: ["Hips", "Spine", "LeftUpLeg", "RightUpLeg"]
-            },
-            {
-                title: "Twist Waist",
-                text: [
-                    "Keep feet hip-width apart.",
-                    "Bring arms up to chest, palms facing the floor.",
-                    "Twist around to see behind you.",
-                    "Repeat in the opposite direction."
-                ],
-                gif: "03 - Twist Waist.gif",
-                joints: ["Spine", "LeftShoulder", "RightShoulder", "Hips, which include: LeftUpLeg and RightUpLeg"]
-            },
-            {
-                title: "Roll Thighs",
-                text: [
-                    "Stand with feet hip-width apart.",
-                    "Lift one leg and bend your knee to a 90-degree angle.",
-                    "Rotate the lifted leg outwards to one side.",
-                    "Perform the same motion with the other leg.",
-                    "Imagine stepping over a knee-high fence with each leg.",
-                ],
-                gif: "04 - Roll Thighs.gif",
-                joints: ["LeftUpLeg", "RightUpLeg", "LeftLeg", "RightLeg", "Spine"]
-            },
-        ];
+        const geometry = new THREE.BoxGeometry(1, 1, 1);
+        const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+        const cube = new THREE.Mesh(geometry, material);
+        scene.add(cube);
 
-        let currentExercise = 0;
+        camera.position.z = 5;
 
-        function displayExercise(index) {
-            if (index >= 0 && index < exercises.length) {
-                titleElement.textContent = exercises[index].title;
-
-                let bulletPoints = "";
-                exercises[index].text.forEach(item => {
-                    bulletPoints += `<li>${item}</li>`;
-                });
-                textElement.innerHTML = bulletPoints;
-                gifElement.src = exercises[index].gif;
-
-                let jointsCovered = "";
-                exercises[index].joints.forEach(joint => {
-                    if (Array.isArray(joint)) {
-                        jointsCovered += "<ul>";
-                        joint.forEach(nestedJoint => {
-                            jointsCovered += `<li>${nestedJoint}</li>`;
-                        });
-                        jointsCovered += "</ul>";
-                    } else {
-                        jointsCovered += `<li>${joint}</li>`;
-                    }
-                });
-                jointsCoveredElement.innerHTML = jointsCovered;
-
-            } else if (index < 0) {
-                currentExercise = 0;
-                alert("This is the first exercise!");
-            } else {
-                alert("Exercises complete!");
-            }
+        function animate() {
+            requestAnimationFrame(animate);
+            cube.rotation.x += 0.01;
+            cube.rotation.y += 0.01;
+            controls.update();
+            renderer.render(scene, camera);
         }
 
-        nextButton.addEventListener('click', () => {
-            currentExercise++;
-            displayExercise(currentExercise);
-        });
+        animate();
 
-        prevButton.addEventListener('click', () => {
-            currentExercise--;
-            displayExercise(currentExercise);
-        });
+        window.addEventListener('resize', onWindowResize, false);
 
-        displayExercise(currentExercise);
+        function onWindowResize() {
+            camera.aspect = container.offsetWidth / container.offsetHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(container.offsetWidth, container.offsetHeight);
+        }
 
         document.querySelectorAll('.left-menu a').forEach(link => {
             link.addEventListener('click', function(e) {
