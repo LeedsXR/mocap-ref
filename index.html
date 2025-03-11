@@ -6,7 +6,8 @@
     <style>
         body {
             display: flex;
-            margin: 0;
+            margin: 0;            <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
         }
 
         .left-menu {
@@ -16,7 +17,147 @@
             box-sizing: border-box;
             height: 100vh;
             display: flex;
-            flex-direction: column;
+            flex-direction: column;            <!DOCTYPE html>
+            <html>
+            
+            <head>
+                <title>Exercise App</title>
+                <style>
+                    body {
+                        display: flex;
+                        margin: 0;
+                    }
+            
+                    .left-menu {
+                        width: 200px;
+                        background-color: #f0f0f0;
+                        padding: 20px;
+                        box-sizing: border-box;
+                        height: 100vh;
+                        display: flex;
+                        flex-direction: column;
+                    }
+            
+                    .left-menu a {
+                        display: block;
+                        padding: 10px;
+                        margin-bottom: 5px;
+                        background-color: #ddd;
+                        text-decoration: none;
+                        color: #333;
+                        text-align: center;
+                    }
+            
+                    .left-menu a:hover {
+                        background-color: #ccc;
+                    }
+            
+                    .content-area {
+                        flex-grow: 1;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        height: 100vh;
+                        text-align: center;
+                    }
+            
+                    .content-container {
+                        display: flex;
+                        align-items: start;
+                        gap: 20px;
+                    }
+            
+                    img {
+                        max-width: 70%;
+                        max-height: 70vh;
+                        display: block;
+                        margin: 10px auto;
+                    }
+            
+                    .info-box {
+                        border: 1px solid #ccc;
+                        padding: 10px;
+                        max-width: 300px;
+                        text-align: left;
+                    }
+            
+                    button {
+                        margin-top: 20px;
+                        padding: 10px 20px;
+                    }
+            
+                    h1 {
+                        margin-bottom: 20px;
+                    }
+            
+                    h2 {
+                        margin-bottom: 10px;
+                    }
+            
+                    ul {
+                        text-align: left;
+                        display: inline-block;
+                        padding: 0 20px;
+                        max-width: 600px;
+                    }
+            
+                    .button-container {
+                        display: flex;
+                        justify-content: center;
+                        gap: 10px;
+                    }
+            
+                    .info-box ul ul {
+                        list-style-type: circle;
+                        color: white;
+                    }
+            
+                    .info-box ul ul li {
+                        padding-left: 40px;
+                    }
+            
+                    #3d-container {
+                        width: 600px;
+                        height: 400px;
+                        border: 1px solid #ccc;
+                    }
+            
+                    #viewer {
+                        width: 600px;
+                        height: 400px;
+                        border: 1px solid #ccc;
+                    }
+                </style>
+            </head>
+            
+            <body>
+                <div class="left-menu">
+                    <a href="#marker-placement">Marker Placement</a>
+                    <a href="#a-pose">A-Pose</a>
+                    <a href="#rom">ROM</a>
+                </div>
+                <div class="content-area">
+                    <div id="marker-placement" style="display: none;">
+                        <h1>Marker Placement Page</h1>
+                        <div id="marker-placement-viewer"></div> <!-- Add this div for the 3D model -->
+                    </div>
+                    <div id="a-pose" style="display: none;">
+                        <h1>A-Pose Page</h1>
+                        <p>Content for A-Pose page goes here.</p>
+                    </div>
+                    <div id="rom">
+                        <h1>ROM</h1>
+                        <div id="3d-container"></div>
+                    </div>
+                </div>
+            
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+                <script src="dist/bundle.js"></script> <!-- Include the bundled script -->
+            </body>
+            
+            </html>
         }
 
         .left-menu a {
