@@ -1,7 +1,6 @@
-// filepath: d:\Work\Goblin Academy\MoBuPython\mocap-ref\main.js
 import modelPlayer from 'js-3d-model-viewer';
 
-const viewerElement = document.getElementById('marker-placement-viewer');
+const viewerElement = document.getElementById('marker-placement-viewer'); // Update this line
 const opts = {
   grid: true,
   trackball: false,
